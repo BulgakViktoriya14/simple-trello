@@ -1,16 +1,23 @@
 <template>
     <aside class="sidebar w-1/4 p-6">
-        <button class="border-2 border-solid border-black p-2 w-full mb-8 rounded-lg bg-white hover:bg-sky-700">Add board</button>
+        <ButtonDefault class="mb-8 w-full" text="Add board"/>
         <ul class="font-medium text-2xl">
-            <li class="mb-8">Board 1</li>
-            <li class="mb-8">Board 2</li>
+            <li v-for="board in boards" class="mb-8" :key="board">{{board}}</li>
         </ul>
     </aside>
 </template>
 
 <script>
+    import ButtonDefault from "./ButtonDefault";
+
     export default {
-        name: "Sidebar"
+        name: "Sidebar",
+        components: {ButtonDefault},
+        data: function () {
+            return {
+                boards: ["Board 1", "Board 2"]
+            }
+        }
     }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <ul class="board__list mb-4" >
-        <BoardListItem v-for="item in arrayListBoard" :title="item" :key="item"/>
+        <BoardListItem v-for="item in listItems" :title="item" :key="item"/>
     </ul>
 </template>
 
@@ -10,9 +10,13 @@
     export default {
         name: "BoardList",
         components: {BoardListItem},
+        props: {
+            listItems : Array
+        },
+
         data :function() {
             return {
-                arrayListBoard: ["item 1", "item 2", "item 3", "item 4", "item 5",]
+
             }
         }
     }

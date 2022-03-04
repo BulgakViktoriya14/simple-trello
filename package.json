@@ -16,6 +16,7 @@
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "vue": "^2.6.11",
+    "vue-bus": "^1.2.1",
     "vue-firestore": "^0.3.30",
     "vuefire": "^3.0.0-alpha.2"
   },
