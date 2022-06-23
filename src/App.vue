@@ -6,7 +6,6 @@
 </template>
 
 <script>
-    import firebase from 'firebase/app'
     import Header from './components/main/Header.vue'
     import MainContent from "./components/main/MainContent";
     import './assets/tailwind.css'
@@ -20,17 +19,8 @@
 
         data() {
             return {
-                boards: []
             }
         },
-
-        firestore() {
-            console.log(firebase.database().ref("/boards"))
-
-            return {
-                boards: firebase.database().ref("/boards")
-            }
-        }
     }
 </script>
 

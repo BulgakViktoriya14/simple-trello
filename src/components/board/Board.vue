@@ -12,15 +12,17 @@
 <script>
     import BoardInput from "./BoardInput";
     import BoardList from "./BoardList";
-    import ButtonDefault from "../main/ButtonDefault";
+    import ButtonDefault from "../elements/ButtonDefault";
     import {eventBus} from '../../main.js';
+    import { getDatabase, ref, update } from "firebase/database";
 
     export default {
         name: "Board",
         components: {ButtonDefault, BoardList, BoardInput},
         props: {
             title: String,
-            list: Array
+            list: Array,
+            id: Number
         },
 
         data: function() {
@@ -37,7 +39,17 @@
 
         methods: {
             addItemInBoard: function () {
-                this.list.push(this.newValue);
+                let array = this.list
+                array.push(this.newValue)
+                let string = array.join('#')
+                console.log('value', this.newValue)
+                console.log('string', string)
+                console.log(this.id)
+
+                const db = getDatabase();
+                update(ref(db, 'boards/board' + this.id), {
+                    boardList: string
+                });
             }
         },
     }

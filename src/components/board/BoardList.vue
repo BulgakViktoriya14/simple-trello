@@ -14,7 +14,7 @@
             listItems : Array
         },
 
-        data :function() {
+        data: function() {
             return {
 
             }
